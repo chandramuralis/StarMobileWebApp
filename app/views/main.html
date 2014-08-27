@@ -1,0 +1,53 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a ng-href="#">Home</a></li>
+    <li class="active"><a ng-href="https://github.com/chandramuralis/StarMobileWebApp.git" target="_blank">Source Code</a></li>
+  </ul>
+  <h3 class="text-muted">Star Mobile WebApp</h3>
+</div>
+
+<!-- <div class="jumbotron">
+  <p><a class="btn btn-lg btn-success" ng-click="getDataFromRest()">Reload!</a></p>
+</div> -->
+
+
+<div class='row'>
+  <p><a class="btn btn-success" ng-click="getDataFromRest()"><i class='icon-refresh'></i> Reload</a>
+  <a class="btn btn-info" ng-click="showData = !showData">Show Received Data</a></p>
+  <div ng-repeat="record in data" class='col1 table-responsive'>
+        <input type="text" value={{record.value}} ng-show="record.viewType == 'editBox' " style="width:100%">
+        <button ng-show="record.viewType == 'button' " style="width:{{record.value.length}}">{{record.value}}</button>
+  </div>
+
+
+<!-- <table>
+    <tr>
+      <td ng-repeat="record in data">
+          <input type="text" value={{record.value}} ng-show="record.viewType == 'editBox' " width={{record.value.length}}>
+          Length: {{record.value.length}}
+          <button ng-show="record.viewType == 'button' ">{{record.value}}</button>
+      </td>
+    </tr>
+</table> -->
+</div>
+
+<div>
+</br>
+<!-- <span> Shows the json value received from REST API <span> -->
+<table ng-show="showData">
+    <tr>
+        <th>Type</th>
+        <th>Value</th>
+    </tr>
+    <tr ng-repeat="record in data">
+        <td>{{record.viewType}}</td>
+        <td>{{record.value}}</td>
+    </tr>
+</table>
+</div>
+
+
+<div class="alert alert-danger alert-error" ng-show="onError">
+  <!-- <a class="close" data-dismiss="alert" ng-click='clearError()'>&times;</a> -->
+  <p>Error: {{errorMessage}} </p>
+</div>
