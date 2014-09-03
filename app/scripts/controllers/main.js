@@ -6,34 +6,46 @@ angular.module('starMobileWebApp')
       $scope.onError = false;
       $scope.errorMessage='';
       $scope.showData = false;
+      $scope.receivedData = [];
 
       $scope.getDataFromRest = function() {
         RESTService.getData()
           .then( function(data) {
-            if(data != null) {
-              $scope.data = data;
-              console.log('Data Received from REST');
+
+            if(data !== null && data !== '') {
+              try {
+                $scope.data = data;
+                $scope.clearError();
+
+                $scope.receivedData = [];
+                angular.forEach(data, function(value, key) {
+                  this.push(value);
+                }, $scope.receivedData);
+                console.log('Data Received');
+              }
+              catch(e) {
+                $scope.errorHandler(e);
+              }
             }
-            else
-              console.log('Nothing returned from REST API');
+            else {
+              $scope.errorHandler({message:'Nothing returned from REST API'});
+            }
           },
           function(error) {
-            $scope.onError = true;
-            $scope.errorMessage = error;
-            console.log('Something went wrong on accessing REST API');
+            $scope.errorHandler(error);
           });
-      }
+      };
 
       $scope.clearError = function() {
         $scope.onError = false;
         $scope.errorMessage = '';
-      }
+      };
 
-      $scope.getDataAt = function(index) {
-        if($scope.data != null && $scope.data.length > 0 && $scope.data.length >= index)
-            return $scope.data;
-      }
+      $scope.errorHandler = function(error) {
+        $scope.onError = true;
+        $scope.errorMessage = (error && error.message ? error.message : error);
+      };
 
       $scope.getDataFromRest();
-  }
+    }
 ]);

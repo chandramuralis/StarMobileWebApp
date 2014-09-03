@@ -41,24 +41,6 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -90,15 +72,59 @@ th {
 }
 
 
-.col1, .col2 {
+/*.col1, .col2 {
     display: inline-block;
-    /*min-width: 150px;
-    border: 1px solid;
-    padding: 4px;*/
     width:100%;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
-}
+}*/
 .row {
     white-space: nowrap;
+    width:100%;
+    /*border: solid 1px #000000;*/
 }
+
+.left {
+    overflow: hidden;
+    min-height: 50px;
+    /*border: 2px dashed green;*/
+}
+
+.right {
+    float: right;
+    /*width: 250px;*/
+    min-width: 50px;
+    min-height: 50px;
+    /*margin-left: 10px;*/
+    /*border: 2px dashed red;*/
+}
+
+
+.leftButton {
+    float:left;
+    min-width:50px;
+}
+
+.rightEditBox {
+  overflow:hidden;
+}
+/*.rightEditBox {
+  width:100%;
+  overflow:auto;
+}*/
+
+.leftEditBox {
+  /*float: left;*/
+  width:100%;
+}
+
+.rightButton {
+  overflow:hidden;
+  width:10%;
+  /*float:right;*/
+}
+
+/*.leftEditBox {
+    background: #aaa;
+    float: left
+}*/

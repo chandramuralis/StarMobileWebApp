@@ -6,21 +6,28 @@
   <h3 class="text-muted">StarMobile Dynamic Rendering</h3>
 </div>
 
-<!-- <div class="jumbotron">
-  <p><a class="btn btn-lg btn-success" ng-click="getDataFromRest()">Reload!</a></p>
-</div> -->
-
+</br>
+</br>
 
 <div class='row'>
   <p><a class="btn btn-success" ng-click="getDataFromRest()"><i class='icon-refresh'></i> Reload</a>
-  <a class="btn btn-info" ng-click="showData = !showData">Show Received Data</a></p>
-  <div ng-repeat="record in data" class='col1 table-responsive'>
-        <input type="text" value={{record.value}} ng-show="record.viewType == 'editBox' " style="width:100%">
-        <button ng-show="record.viewType == 'button' " style="width:{{record.value.length}}">{{record.value}}</button>
+  <a class="btn btn-info" ng-click="showData = !showData">
+    <span ng-show = "!showData">Show Received Data</span>
+    <span ng-show = "showData"> Hide Received Data</span>
+  </a></p>
+  <div class="right">
+    <button ng-show="receivedData[1].viewType == 'button' " >{{receivedData[1].value}}</button>
+    <input type="text" value={{receivedData[1].value}} ng-show="receivedData[1].viewType == 'editBox' " class="rightEditBox">
+  </div>
+  <div class="left">
+    <input type="text" value={{receivedData[0].value}} ng-show="receivedData[0].viewType == 'editBox' " class="leftEditBox">
+    <button ng-show="receivedData[0].viewType == 'button' " class="leftButton">{{receivedData[0].value}}</button>
   </div>
 </div>
 
+
 <div>
+<hr>
 </br>
 <!-- <span> Shows the json value received from REST API <span> -->
 <table ng-show="showData">
@@ -37,6 +44,5 @@
 
 
 <div class="alert alert-danger alert-error" ng-show="onError">
-  <!-- <a class="close" data-dismiss="alert" ng-click='clearError()'>&times;</a> -->
   <p>Error: {{errorMessage}} </p>
 </div>

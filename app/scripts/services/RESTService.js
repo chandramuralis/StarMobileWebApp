@@ -8,6 +8,7 @@ angular.module('starMobileWebApp')
         var deferred = $q.defer();
         $http({
             method:'GET',
+            //url:'http://localhost:3090'
             url:apiURL
         })
         .success(function(data, status, headers, config){
