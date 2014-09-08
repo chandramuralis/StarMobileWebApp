@@ -69,7 +69,4 @@ module.exports = function(config) {
     //   dir : 'coverage/'
     // };
   }
-
-  config.set(configuration);
-  
 };
