@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('starMobileWebApp')
   .service('RESTService', ['$http', '$q', function($http, $q) {
       var service = {};
@@ -10,17 +12,17 @@ angular.module('starMobileWebApp')
             method:'GET',
             //url:'http://localhost:3090'
             url:apiURL
-        })
-        .success(function(data, status, headers, config){
-          deferred.resolve(data);
-        })
-        .error( function(data, status, headers, config) {
-          deferred.reject(data);
-        })
+          })
+        .success(function(data){
+            deferred.resolve(data);
+          })
+        .error( function(data) {
+            deferred.reject(data);
+          });
 
         return deferred.promise;
       };
 
-    return service;
+      return service;
 
-   }]);
+    }]);

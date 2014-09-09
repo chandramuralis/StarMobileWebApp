@@ -2,9 +2,6 @@
 
 angular
   .module('starMobileWebApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
     'ngRoute'
   ])
   .config(function ($routeProvider) {

@@ -13,7 +13,7 @@
   <p><a class="btn btn-success" ng-click="getDataFromRest()"><i class='icon-refresh'></i> Reload</a>
   <a class="btn btn-info" ng-click="showData = !showData">
     <span ng-show = "!showData">Show Received Data</span>
-    <span ng-show = "showData"> Hide Received Data</span>
+    <span ng-show = "showData">Hide Received Data</span>
   </a></p>
   <div class="right">
     <button ng-show="receivedData[1].viewType == 'button' " >{{receivedData[1].value}}</button>
@@ -41,7 +41,6 @@
     </tr>
 </table>
 </div>
-
 
 <div class="alert alert-danger alert-error" ng-show="onError">
   <p>Error: {{errorMessage}} </p>

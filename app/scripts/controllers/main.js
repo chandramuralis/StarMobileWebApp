@@ -18,7 +18,7 @@ angular.module('starMobileWebApp')
                 $scope.clearError();
 
                 $scope.receivedData = [];
-                angular.forEach(data, function(value, key) {
+                angular.forEach(data, function(value) {
                   this.push(value);
                 }, $scope.receivedData);
                 console.log('Data Received');
