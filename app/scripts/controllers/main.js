@@ -2,7 +2,6 @@
 
 angular.module('starMobileWebApp')
 .controller('MainCtrl', ['$scope', 'RESTService', function ($scope, RESTService) {
-      $scope.data = {};
       $scope.onError = false;
       $scope.errorMessage='';
       $scope.showData = false;
@@ -14,13 +13,15 @@ angular.module('starMobileWebApp')
 
             if(data !== null && data !== '') {
               try {
-                $scope.data = data;
                 $scope.clearError();
 
                 $scope.receivedData = [];
+
+                //Manually navigate each items so that we can do some validation on each individual record
                 angular.forEach(data, function(value) {
                   this.push(value);
                 }, $scope.receivedData);
+
                 console.log('Data Received');
               }
               catch(e) {
