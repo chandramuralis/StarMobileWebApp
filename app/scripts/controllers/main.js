@@ -1,11 +1,16 @@
 'use strict';
 
 angular.module('starMobileWebApp')
-.controller('MainCtrl', ['$scope', 'RESTService', function ($scope, RESTService) {
+.controller('MainCtrl', ['$scope', 'RESTService', 'GetScreenElements', function ($scope, RESTService, GetScreenElements) {
       $scope.onError = false;
       $scope.errorMessage='';
       $scope.showData = false;
       $scope.receivedData = [];
+      $scope.screenElementData = [];
+
+      $scope.getDefaultData = function() {
+        $scope.screenElementData = GetScreenElements.getData();
+      };
 
       $scope.getDataFromRest = function() {
         RESTService.getData()
@@ -47,6 +52,6 @@ angular.module('starMobileWebApp')
         $scope.errorMessage = (error && error.message ? error.message : error);
       };
 
-      $scope.getDataFromRest();
+      $scope.getDefaultData();
     }
 ]);

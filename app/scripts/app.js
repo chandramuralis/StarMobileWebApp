@@ -2,7 +2,8 @@
 
 angular
   .module('starMobileWebApp', [
-    'ngRoute'
+    'ngRoute',
+    'ngResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider

@@ -9,7 +9,7 @@
 </br>
 </br>
 
-<div class='row'>
+<div class='row' ng-init="getDataFromRest()">
   <p><a class="btn btn-success" ng-click="getDataFromRest()"><i class='icon-refresh'></i> Reload</a>
   <a class="btn btn-info" ng-click="showData = !showData">
     <span ng-show = "!showData">Show Received Data</span>
@@ -40,6 +40,12 @@
     </tr>
 </table>
 </div>
+
+<!-- Loads data from the Factory Method -->
+<!-- <div>
+  <span><i>Data Received using Factory method</i></span>
+  <pre> {{ screenElementData | json }}</pre>
+</div> -->
 
 <div class="alert alert-danger alert-error" ng-show="onError">
   <p>Error: {{errorMessage}} </p>
